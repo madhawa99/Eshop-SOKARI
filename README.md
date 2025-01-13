@@ -88,17 +88,3 @@ Follow these instructions to set up the project locally.
 
 5. Access the application at [http://localhost:3000](http://localhost:3000).
 
-## Contribution Guidelines
-
-We welcome contributions to improve this project. To contribute:
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Commit your changes and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any inquiries or support, feel free to contact us at support@artisanmarketplace.lk.
