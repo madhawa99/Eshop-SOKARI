@@ -54,7 +54,7 @@ Follow these instructions to set up the project locally.
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/yourusername/local-artisan-marketplace.git](https://github.com/madhawa99/Eshop-SOKARI.git)
+   git clone [https://github.com/yourusername/Eshop-SOKARI.git]
    cd local-artisan-marketplace
    ```
 
