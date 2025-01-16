@@ -42,3 +42,12 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.bg-dark-blue {
+  background-color: #001F54; 
+}
+
+.styles.button {
+  /* other button styles */
+  background-color: #001F54; 
+}
