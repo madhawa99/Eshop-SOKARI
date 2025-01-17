@@ -77,128 +77,138 @@ const ProfileContent = ({ active }) => {
   };
 
   return (
-    <div className="w-full">
-      {/* profile */}
-      {active === 1 && (
-        <>
-          <div className="flex justify-center w-full">
-            <div className="relative">
-              <img
-                src={`${user?.avatar?.url}`}
-                className="w-[150px] h-[150px] rounded-full object-cover border-[3px] border-[#3ad132]"
-                alt=""
-              />
-              <div className="w-[30px] h-[30px] bg-[#E3E9EE] rounded-full flex items-center justify-center cursor-pointer absolute bottom-[5px] right-[5px]">
-                <input
-                  type="file"
-                  id="image"
-                  className="hidden"
-                  onChange={handleImage}
+    <div className="w-full min-h-screen bg-gray-900 text-black flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative">
+      {/* Gradient background */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.3)_0%,rgba(21,94,117,0.2)_45%,rgba(0,0,0,0.1)_100%)]" />
+        </div>
+      </div>
+  
+      {/* Main content */}
+      <div className="relative z-10">
+        {/* profile */}
+        {active === 1 && (
+          <>
+            <div className="flex justify-center w-full">
+              <div className="relative">
+                <img
+                  src={`${user?.avatar?.url}`}
+                  className="w-[150px] h-[150px] rounded-full object-cover border-[3px] border-[#3ad132]"
+                  alt=""
                 />
-                <label htmlFor="image">
-                  <AiOutlineCamera />
-                </label>
+                <div className="w-[30px] h-[30px] bg-[#E3E9EE] rounded-full flex items-center justify-center cursor-pointer absolute bottom-[5px] right-[5px]">
+                  <input
+                    type="file"
+                    id="image"
+                    className="hidden"
+                    onChange={handleImage}
+                  />
+                  <label htmlFor="image">
+                    <AiOutlineCamera />
+                  </label>
+                </div>
               </div>
             </div>
+            <br />
+            <br />
+            <div className="w-full px-5">
+              <form onSubmit={handleSubmit} aria-required={true}>
+                <div className="w-full 800px:flex block pb-3">
+                  <div className=" w-[100%] 800px:w-[50%]">
+                    <label className="block pb-2 text-cyan-50">Full Name</label>
+                    <input
+                      type="text"
+                      className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  <div className=" w-[100%] 800px:w-[50%]">
+                    <label className="block pb-2 text-cyan-50">Email Address</label>
+                    <input
+                      type="text"
+                      className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                </div>
+  
+                <div className="w-full 800px:flex block pb-3">
+                  <div className=" w-[100%] 800px:w-[50%]">
+                    <label className="block pb-2 text-cyan-50">Phone Number</label>
+                    <input
+                      type="number"
+                      className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                      required
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
+                    />
+                  </div>
+  
+                  <div className=" w-[100%] 800px:w-[50%]">
+                    <label className="block pb-2 text-cyan-50">Enter your password</label>
+                    <input
+                      type="password"
+                      className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                      required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <input
+                  className={`w-[250px] h-[40px] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
+                  required
+                  value="Update"
+                  type="submit"
+                />
+              </form>
+            </div>
+          </>
+        )}
+  
+        {/* order */}
+        {active === 2 && (
+          <div>
+            <AllOrders />
           </div>
-          <br />
-          <br />
-          <div className="w-full px-5">
-            <form onSubmit={handleSubmit} aria-required={true}>
-              <div className="w-full 800px:flex block pb-3">
-                <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Full Name</label>
-                  <input
-                    type="text"
-                    className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-                <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Email Address</label>
-                  <input
-                    type="text"
-                    className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div className="w-full 800px:flex block pb-3">
-                <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Phone Number</label>
-                  <input
-                    type="number"
-                    className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
-                    required
-                    value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                  />
-                </div>
-
-                <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Enter your password</label>
-                  <input
-                    type="password"
-                    className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-              </div>
-              <input
-                className={`w-[250px] h-[40px] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
-                required
-                value="Update"
-                type="submit"
-              />
-            </form>
+        )}
+  
+        {/* Refund */}
+        {active === 3 && (
+          <div>
+            <AllRefundOrders />
           </div>
-        </>
-      )}
-
-      {/* order */}
-      {active === 2 && (
-        <div>
-          <AllOrders />
-        </div>
-      )}
-
-      {/* Refund */}
-      {active === 3 && (
-        <div>
-          <AllRefundOrders />
-        </div>
-      )}
-
-      {/* Track order */}
-      {active === 5 && (
-        <div>
-          <TrackOrder />
-        </div>
-      )}
-
-      {/* Change Password */}
-      {active === 6 && (
-        <div>
-          <ChangePassword />
-        </div>
-      )}
-
-      {/*  user Address */}
-      {active === 7 && (
-        <div>
-          <Address />
-        </div>
-      )}
+        )}
+  
+        {/* Track order */}
+        {active === 5 && (
+          <div>
+            <TrackOrder />
+          </div>
+        )}
+  
+        {/* Change Password */}
+        {active === 6 && (
+          <div>
+            <ChangePassword />
+          </div>
+        )}
+  
+        {/*  user Address */}
+        {active === 7 && (
+          <div>
+            <Address />
+          </div>
+        )}
+      </div>
     </div>
   );
-};
+};   
 
 const AllOrders = () => {
   const { user } = useSelector((state) => state.user);
@@ -484,7 +494,7 @@ const ChangePassword = () => {
   };
   return (
     <div className="w-full px-5">
-      <h1 className="block text-[25px] text-center font-[600] text-[#000000ba] pb-2">
+      <h1 className="block text-[25px] text-center font-[600] text-[#000000ba] pb-2 text-cyan-50">
         Change Password
       </h1>
       <div className="w-full">
@@ -494,7 +504,7 @@ const ChangePassword = () => {
           className="flex flex-col items-center"
         >
           <div className=" w-[100%] 800px:w-[50%] mt-5">
-            <label className="block pb-2">Enter your old password</label>
+            <label className="block pb-2 text-cyan-50">Enter your old password</label>
             <input
               type="password"
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -504,7 +514,7 @@ const ChangePassword = () => {
             />
           </div>
           <div className=" w-[100%] 800px:w-[50%] mt-2">
-            <label className="block pb-2">Enter your new password</label>
+            <label className="block pb-2 text-cyan-50">Enter your new password</label>
             <input
               type="password"
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -514,7 +524,7 @@ const ChangePassword = () => {
             />
           </div>
           <div className=" w-[100%] 800px:w-[50%] mt-2">
-            <label className="block pb-2">Enter your confirm password</label>
+            <label className="block pb-2 text-cyan-50">Enter your confirm password</label>
             <input
               type="password"
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -601,14 +611,14 @@ const Address = () => {
                 onClick={() => setOpen(false)}
               />
             </div>
-            <h1 className="text-center text-[25px] font-Poppins">
+            <h1 className="text-center text-[25px] font-Poppins text-cyan-50">
               Add New Address
             </h1>
             <div className="w-full">
               <form aria-required onSubmit={handleSubmit} className="w-full">
                 <div className="w-full block p-4">
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Country</label>
+                    <label className="block pb-2 text-cyan-50">Country</label>
                     <select
                       name=""
                       id=""
@@ -616,7 +626,7 @@ const Address = () => {
                       onChange={(e) => setCountry(e.target.value)}
                       className="w-[95%] border h-[40px] rounded-[5px]"
                     >
-                      <option value="" className="block border pb-2">
+                      <option value="" className="block border pb-2 text-cyan-50">
                         choose your country
                       </option>
                       {Country &&
@@ -633,7 +643,7 @@ const Address = () => {
                   </div>
 
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Choose your City</label>
+                    <label className="block pb-2 text-cyan-50">Choose your City</label>
                     <select
                       name=""
                       id=""
@@ -641,7 +651,7 @@ const Address = () => {
                       onChange={(e) => setCity(e.target.value)}
                       className="w-[95%] border h-[40px] rounded-[5px]"
                     >
-                      <option value="" className="block border pb-2">
+                      <option value="" className="block border pb-2 text-cyan-50">
                         choose your city
                       </option>
                       {State &&
@@ -658,7 +668,7 @@ const Address = () => {
                   </div>
 
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Address 1</label>
+                    <label className="block pb-2 text-cyan-50">Address 1</label>
                     <input
                       type="address"
                       className={`${styles.input}`}
@@ -668,7 +678,7 @@ const Address = () => {
                     />
                   </div>
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Address 2</label>
+                    <label className="block pb-2 text-cyan-50">Address 2</label>
                     <input
                       type="address"
                       className={`${styles.input}`}
@@ -679,7 +689,7 @@ const Address = () => {
                   </div>
 
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Zip Code</label>
+                    <label className="block pb-2 text-cyan-50">Zip Code</label>
                     <input
                       type="number"
                       className={`${styles.input}`}
@@ -690,7 +700,7 @@ const Address = () => {
                   </div>
 
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Address Type</label>
+                    <label className="block pb-2 text-cyan-50">Address Type</label>
                     <select
                       name=""
                       id=""
@@ -698,7 +708,7 @@ const Address = () => {
                       onChange={(e) => setAddressType(e.target.value)}
                       className="w-[95%] border h-[40px] rounded-[5px]"
                     >
-                      <option value="" className="block border pb-2">
+                      <option value="" className="block border pb-2 text-cyan-50">
                         Choose your Address Type
                       </option>
                       {addressTypeData &&
@@ -736,7 +746,7 @@ const Address = () => {
           className={`${styles.button} !rounded-md`}
           onClick={() => setOpen(true)}
         >
-          <span className="text-[#fff]">Add New</span>
+          <span className="text-[#fff] text-cyan-50">Add New</span>
         </div>
       </div>
       <br />
@@ -770,7 +780,7 @@ const Address = () => {
         ))}
 
       {user && user.addresses.length === 0 && (
-        <h5 className="text-center pt-8 text-[18px]">
+        <h5 className="text-center pt-8 text-[18px] text-cyan-50">
           You not have any saved address!
         </h5>
       )}
