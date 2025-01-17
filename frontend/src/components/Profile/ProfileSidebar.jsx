@@ -160,10 +160,10 @@ const ProfileSidebar = ({ setActive, active }) => {
         className="single_item flex items-center cursor-pointer w-full mb-8"
         onClick={logoutHandler}
       >
-        <AiOutlineLogin size={20} color={active === 8 ? "red" : ""} />
+        <AiOutlineLogin size={20} color={active === 8 ? "red" : "red"} />
         <span
           className={`pl-3 ${
-            active === 8 ? "text-[red]" : ""
+            active === 8 ? "text-[cyan]" : "text-[red]"
           } 800px:block hidden`}
         >
           Log out
