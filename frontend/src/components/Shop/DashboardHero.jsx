@@ -85,9 +85,9 @@ const DashboardHero = () => {
   });
   return (
     <div className="w-full p-8">
-      <h3 className="text-[22px] font-Poppins pb-2">Overview</h3>
+      <h3 className="text-[22px] font-Poppins pb-2 text-cyan-50">Overview</h3>
       <div className="w-full block 800px:flex items-center justify-between">
-        <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
+        <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow-lg shadow-cyan-500/75 rounded px-2 py-5">
           <div className="flex items-center">
             <AiOutlineMoneyCollect
               size={30}
@@ -107,7 +107,7 @@ const DashboardHero = () => {
           </Link>
         </div>
 
-        <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
+        <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow-lg shadow-cyan-500/75 rounded px-2 py-5">
           <div className="flex items-center">
             <MdBorderClear size={30} className="mr-2" fill="#00000085" />
             <h3
@@ -122,7 +122,7 @@ const DashboardHero = () => {
           </Link>
         </div>
 
-        <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
+        <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow-lg shadow-cyan-500/75 rounded px-2 py-5">
           <div className="flex items-center">
             <AiOutlineMoneyCollect
               size={30}
@@ -142,8 +142,8 @@ const DashboardHero = () => {
         </div>
       </div>
       <br />
-      <h3 className="text-[22px] font-Poppins pb-2">Latest Orders</h3>
-      <div className="w-full min-h-[45vh] bg-white rounded">
+      <h3 className="text-[22px] font-Poppins pb-2 text-cyan-50">Latest Orders</h3>
+      <div className="w-full min-h-[45vh] bg-white shadow-lg shadow-cyan-500/75 rounded">
       <DataGrid
         rows={row}
         columns={columns}

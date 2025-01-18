@@ -494,7 +494,7 @@ const ChangePassword = () => {
   };
   return (
     <div className="w-full px-5">
-      <h1 className="block text-[25px] text-center font-[600] text-[#000000ba] pb-2 text-cyan">
+      <h1 className="block text-[25px] text-center font-[600] text-[#00FFFF] pb-2">
         Change Password
       </h1>
       <div className="w-full">
