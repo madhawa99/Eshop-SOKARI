@@ -13,7 +13,7 @@ const DashboardHeader = () => {
     style={{background: "linear-gradient(to right, rgba(0, 31, 63, 0.1), rgba(0, 63, 95, 0.3))"}}
     >
       <div>
-        <Link to="/dashboard">
+        <Link to="/">
           <img
             src="sokari5.png"
             alt=""
