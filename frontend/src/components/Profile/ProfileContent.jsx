@@ -603,15 +603,16 @@ const Address = () => {
     <div className="w-full px-5">
       {open && (
         <div className="fixed w-full h-screen bg-[#0000004b] top-0 left-0 flex items-center justify-center ">
-          <div className="w-[35%] h-[80vh] bg-white rounded shadow relative overflow-y-scroll">
+          <div className="w-[35%] h-[80vh] bg-gray-900 rounded shadow relative">
             <div className="w-full flex justify-end p-3">
               <RxCross1
                 size={30}
                 className="cursor-pointer"
+                class = "text-white cursor-pointer"
                 onClick={() => setOpen(false)}
               />
             </div>
-            <h1 className="text-center text-[25px] font-Poppins text-cyan-50">
+            <h1 className="text-center text-[25px] font-Poppins text-cyan-200">
               Add New Address
             </h1>
             <div className="w-full">
@@ -724,10 +725,10 @@ const Address = () => {
                     </select>
                   </div>
 
-                  <div className=" w-full pb-2">
+                  <div className=" w-full pb-2" color="white">
                     <input
                       type="submit"
-                      className={`${styles.input} mt-5 cursor-pointer`}
+                      className={`${styles.input} mt-5 cursor-pointer group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700`}
                       required
                       readOnly
                     />
@@ -739,7 +740,7 @@ const Address = () => {
         </div>
       )}
       <div className="flex w-full items-center justify-between">
-        <h1 className="text-[25px] font-[600] text-[#000000ba] pb-2">
+        <h1 className="text-[25px] font-[600] text-[#00FFFF] pb-2">
           My Addresses
         </h1>
         <div
