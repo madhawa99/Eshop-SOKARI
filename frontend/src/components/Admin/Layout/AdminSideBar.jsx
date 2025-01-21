@@ -11,13 +11,6 @@ import { AiOutlineSetting } from "react-icons/ai";
 
 const AdminSideBar = ({ active }) => {
   return (
-    <div
-      className="w-full rounded-[10px] p-4 pt-8"
-      style={{
-        background: "linear-gradient(to right, #001F3F, #003F5F)",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-      }}
-    >
       <div className="w-full h-[90vh] bg-cyan shadow-sm overflow-y-scroll sticky top-0 left-0 z-10">
         {/* single item */}
         <div className="w-full flex items-center p-4">
@@ -157,7 +150,6 @@ const AdminSideBar = ({ active }) => {
         </div>
 
       </div>
-    </div>
   );
 };
 

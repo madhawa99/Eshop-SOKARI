@@ -204,20 +204,22 @@ const Header = ({ activeHeading }) => {
         className={`${
           active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
         }
-      w-full h-[60px] bg-[#fff] z-50 top-0 left-0 shadow-sm 800px:hidden`}
+      w-full h-[60px] bg-[#00FFFF] z-50 top-0 left-0 shadow-sm 800px:hidden`}
+      style={{background: "linear-gradient(to right, rgba(0, 31, 63, 0.1), rgba(0, 63, 95, 0.3))"}}
       >
         <div className="w-full flex items-center justify-between">
           <div>
             <BiMenuAltLeft
               size={40}
-              className="ml-4"
+              className="ml-4 cursor-pointer"
+              color = "white"
               onClick={() => setOpen(true)}
             />
           </div>
           <div>
             <Link to="/">
               <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+                src="sokari5.png"
                 alt=""
                 className="mt-3 cursor-pointer"
               />
@@ -228,7 +230,7 @@ const Header = ({ activeHeading }) => {
               className="relative mr-[20px]"
               onClick={() => setOpenCart(true)}
             >
-              <AiOutlineShoppingCart size={30} />
+              <AiOutlineShoppingCart size={30} color="rgb(255 255 255 / 83%)" />
               <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                 {cart && cart.length}
               </span>
@@ -246,7 +248,9 @@ const Header = ({ activeHeading }) => {
           <div
             className={`fixed w-full bg-[#0000005f] z-20 h-full top-0 left-0`}
           >
-            <div className="fixed w-[70%] bg-[#fff] h-screen top-0 left-0 z-10 overflow-y-scroll">
+            <div className="fixed w-[70%] h-screen top-0 left-0 z-10 overflow-y-scroll"
+              style={{background: "linear-gradient(to right, rgba(0, 31, 63, 1), rgba(0, 63, 95, 0.9))"}}
+            >
               <div className="w-full justify-between flex pr-3">
                 <div>
                   <div
@@ -270,7 +274,7 @@ const Header = ({ activeHeading }) => {
                 <input
                   type="search"
                   placeholder="Search Product..."
-                  className="h-[40px] w-full px-2 border-[#3957db] border-[2px] rounded-md"
+                  className="h-[40px] w-full px-2 border-[#00FFFF] border-[2px] rounded-md"
                   value={searchTerm}
                   onChange={handleSearchChange}
                 />
@@ -298,10 +302,10 @@ const Header = ({ activeHeading }) => {
               </div>
 
               <Navbar active={activeHeading} />
-              <div className={`${styles.button} ml-4 !rounded-[4px]`}>
+              <div className={`${styles.button} ml-4 !rounded-[4px] group relative h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700`}>
                 <Link to="/shop-create">
                   <h1 className="text-[#fff] flex items-center">
-                    Become Seller <IoIosArrowForward className="ml-1" />
+                    Become Seller <IoIosArrowForward  />
                   </h1>
                 </Link>
               </div>
