@@ -34,9 +34,9 @@ const ProfileSidebar = ({ setActive, active }) => {
 
   return (
     <div
-      className="w-full rounded-[10px] p-4 pt-8"
+      className="w-full h-[90vh] bg-cyan shadow-sm overflow-y-scroll sticky top-0 left-0 z-10 rounded-[10px] p-4 pt-8 "
       style={{
-        background: "linear-gradient(to right, #001F3F, #003F5F)",
+        background: "linear-gradient(to right, #001F3F,rgb(1, 30, 44))",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
       }}
     >
@@ -144,11 +144,11 @@ const ProfileSidebar = ({ setActive, active }) => {
           >
             <MdOutlineAdminPanelSettings
               size={20}
-              color={active === 8 ? "red" : ""}
+              color={active === 8 ? "red" : "white"}
             />
             <span
               className={`pl-3 ${
-                active === 8 ? "text-[red]" : ""
+                active === 8 ? "text-[red]" : "text-[white]"
               } 800px:block hidden`}
             >
               Admin Dashboard
