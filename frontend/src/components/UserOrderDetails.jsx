@@ -68,15 +68,15 @@ const UserOrderDetails = () => {
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center">
           <BsFillBagFill size={30} color="crimson" />
-          <h1 className="pl-2 text-[25px]">Order Details</h1>
+          <h1 className="pl-2 text-[25px] text-white">Order Details</h1>
         </div>
       </div>
 
       <div className="w-full flex items-center justify-between pt-6">
-        <h5 className="text-[#00000084]">
+        <h5 className="text-white">
           Order ID: <span>#{data?._id?.slice(0, 8)}</span>
         </h5>
-        <h5 className="text-[#00000084]">
+        <h5 className="text-white">
           Placed on: <span>{data?.createdAt?.slice(0, 10)}</span>
         </h5>
       </div>
@@ -94,8 +94,8 @@ const UserOrderDetails = () => {
               className="w-[80x] h-[80px]"
             />
             <div className="w-full">
-              <h5 className="pl-3 text-[20px]">{item.name}</h5>
-              <h5 className="pl-3 text-[20px] text-[#00000091]">
+              <h5 className="pl-3 text-[20px] text-white">{item.name}</h5>
+              <h5 className="pl-3 text-[20px] text-white">
                 US${item.discountPrice} x {item.qty}
               </h5>
             </div>
@@ -198,7 +198,7 @@ const UserOrderDetails = () => {
       )}
 
       <div className="border-t w-full text-right">
-        <h5 className="pt-3 text-[18px]">
+        <h5 className="pt-3 text-[18px] text-white">
           Total Price: <strong>US${data?.totalPrice}</strong>
         </h5>
       </div>
@@ -206,26 +206,26 @@ const UserOrderDetails = () => {
       <br />
       <div className="w-full 800px:flex items-center">
         <div className="w-full 800px:w-[60%]">
-          <h4 className="pt-3 text-[20px] font-[600]">Shipping Address:</h4>
-          <h4 className="pt-3 text-[20px]">
+          <h4 className="pt-3 text-[20px] font-[600] text-white">Shipping Address:</h4>
+          <h4 className="pt-3 text-[20px] text-white">
             {data?.shippingAddress.address1 +
               " " +
               data?.shippingAddress.address2}
           </h4>
-          <h4 className=" text-[20px]">{data?.shippingAddress.country}</h4>
-          <h4 className=" text-[20px]">{data?.shippingAddress.city}</h4>
-          <h4 className=" text-[20px]">{data?.user?.phoneNumber}</h4>
+          <h4 className=" text-[20px] text-white">{data?.shippingAddress.country}</h4>
+          <h4 className=" text-[20px] text-white">{data?.shippingAddress.city}</h4>
+          <h4 className=" text-[20px] text-white">{data?.user?.phoneNumber}</h4>
         </div>
         <div className="w-full 800px:w-[40%]">
-          <h4 className="pt-3 text-[20px]">Payment Info:</h4>
-          <h4>
+          <h4 className="pt-3 text-[20px] text-white">Payment Info:</h4>
+          <h4 className="text-white">
             Status:{" "}
             {data?.paymentInfo?.status ? data?.paymentInfo?.status : "Not Paid"}
           </h4>
           <br />
            {
             data?.status === "Delivered" && (
-              <div className={`${styles.button} text-white`}
+              <div className={`${styles.button} text-white bg-cyan-400`}
               onClick={refundHandler}
               >Give a Refund</div>
             )
@@ -233,9 +233,6 @@ const UserOrderDetails = () => {
         </div>
       </div>
       <br />
-      <Link to="/">
-        <div className={`${styles.button} text-white`}>Send Message</div>
-      </Link>
       <br />
       <br />
     </div>
