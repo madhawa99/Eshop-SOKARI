@@ -77,7 +77,7 @@ const ProfileContent = ({ active }) => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-900 text-black flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative">
+    <div className="w-full min-h-screen bg-gray-900 text-black flex flex-col justify-start py-12 sm:px-6 lg:px-8 relative">
       {/* Gradient background */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute inset-0">
