@@ -14,7 +14,7 @@ const DashboardSideBar = ({ active }) => {
     <div
       className="w-full rounded-[10px] p-4 pt-8"
       style={{
-        background: "linear-gradient(to right, #001F3F, #003F5F)",
+        background: "linear-gradient(to left, #001F3F,rgb(0, 25, 37))",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
       }}
     >
