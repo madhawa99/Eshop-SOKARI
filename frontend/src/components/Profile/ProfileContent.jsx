@@ -161,7 +161,7 @@ const ProfileContent = ({ active }) => {
                   </div>
                 </div>
                 <input
-                  className={`w-[250px] h-[40px] boarder-green-900 bg-green-900 text-center text-[#3ad132] rounded-[3px] mt-8 cursor-pointer`}
+                  className={`w-[150px] h-[40px] border border-transparent text-center text-[#FFFFFF] rounded-[3px] mt-8  cursor-pointer bg-cyan-600 hover:bg-cyan-700`}
                   required
                   value="Update"
                   type="submit"
@@ -542,7 +542,7 @@ const ChangePassword = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
             <input
-              className={`w-[95%] h-[40px] border border-[#00FFFF] text-center text-[#00FFFF] rounded-[3px] mt-8 cursor-pointer`}
+              className={`w-[95%] h-[40px] border border-transparent text-center text-[#FFFFFF] rounded-[3px] mt-8 cursor-pointer bg-cyan-600 hover:bg-cyan-700`}
               required
               value="Update"
               type="submit"
