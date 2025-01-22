@@ -16,7 +16,7 @@ const AdminHeader = () => {
       <div>
         <Link to="/">
           <img
-            src="sokari5.png"
+            src="https://res.cloudinary.com/dw6fhh2l4/image/upload/v1737574280/SOKARI_p4fjln.svg"
             alt=""
           />
         </Link>
