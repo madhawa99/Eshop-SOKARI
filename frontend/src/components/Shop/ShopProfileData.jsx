@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import styles from "../../styles/styles";
 import ProductCard from "../Route/ProductCard/ProductCard";
+import EventCard from "../Events/EventCard";
 import Ratings from "../Products/Ratings";
 import { getAllEventsShop } from "../../redux/actions/event";
 
@@ -81,10 +82,10 @@ const ShopProfileData = ({ isOwner }) => {
 
       {active === 2 && (
         <div className="w-full">
-          <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] xl:grid-cols-4 xl:gap-[20px] mb-12 border-0">
+          <div className="w-full block bg-black bg-opacity-40">
             {events &&
               events.map((i, index) => (
-                <ProductCard
+                <EventCard
                   data={i}
                   key={index}
                   isShop={true}
@@ -121,7 +122,7 @@ const ShopProfileData = ({ isOwner }) => {
               </div>
             ))}
           {allReviews && allReviews.length === 0 && (
-            <h5 className="w-full text-center py-5 text-[18px]">
+            <h5 className="w-full text-center py-5 text-[18px] text-white">
               No Reviews have for this shop!
             </h5>
           )}
