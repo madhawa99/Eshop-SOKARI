@@ -43,7 +43,7 @@ const Hero = () => {
           culture, and individuality.
         </p>
         <Link to="/products" className="inline-block">
-          <div className={`${styles.button} mt-5 bg-dark-blue`}>
+          <div className={`${styles.button} mt-5 bg-cyan-500`}>
             <span className="text-[#fff] font-[Poppins] text-[18px]">
               Shop Now
             </span>

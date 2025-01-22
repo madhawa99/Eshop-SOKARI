@@ -10,7 +10,7 @@ const DropDown = ({ categoriesData, setDropDown }) => {
     window.location.reload();
   };
   return (
-    <div className="pb-4 w-[270px] bg-[#757474] absolute z-30 rounded-b-md shadow-sm">
+    <div className="pb-4 w-[270px] bg-black bg-opacity-80 absolute z-30 rounded-b-md shadow-sm border-2 border-cyan-300">
       {categoriesData &&
         categoriesData.map((i, index) => (
           <div
@@ -29,7 +29,7 @@ const DropDown = ({ categoriesData, setDropDown }) => {
               }}
               alt=""
             />
-            <h3 className="m-3 cursor-pointer select-none">{i.title}</h3>
+            <h3 className="m-3 cursor-pointer select-none text-white">{i.title}</h3>
           </div>
         ))}
     </div>
