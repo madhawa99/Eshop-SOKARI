@@ -106,15 +106,18 @@ const AllWithdraw = () => {
       });
     });
   return (
-    <div className="w-full flex items-center pt-5 justify-center">
-      <div className="w-[95%] bg-white">
-        <DataGrid
-          rows={row}
-          columns={columns}
-          pageSize={10}
-          disableSelectionOnClick
-          autoHeight
-        />
+    <div className="w-full flex justify-center pt-5">
+      <div className="w-[97%]">
+        <h3 className="text-[22px] font-Poppins pb-2 text-[#FFFFFF]">Withdraw Requests</h3>
+        <div className="w-full min-h-{20vh] bg-white rounded">
+          <DataGrid
+            rows={row}
+            columns={columns}
+            pageSize={10}
+            disableSelectionOnClick
+            autoHeight
+          />
+        </div>
       </div>
       {open && (
         <div className="w-full fixed h-screen top-0 left-0 bg-[#00000031] z-[9999] flex items-center justify-center">
