@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/styles";
-import { AiOutlineArrowRight, AiOutlineMoneyCollect } from "react-icons/ai";
 import { MdBorderClear } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@material-ui/data-grid";
+import { MdAttachMoney } from "react-icons/md";
+import { MdProductionQuantityLimits } from "react-icons/md";
 import { Button } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllOrdersOfAdmin } from "../../redux/actions/order";
@@ -87,13 +87,13 @@ const AdminDashboardMain = () => {
         <div className="w-full block 800px:flex items-center justify-between">
           <div className="w-full mb-4 800px:w-[30%] min-h-[24vh] bg-white shadow rounded px-2 py-5">
             <div className="flex items-center">
-              <AiOutlineMoneyCollect
+              <MdAttachMoney
                 size={30}
                 className="mr-2"
                 fill="#00000085"
               />
               <h3
-                className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
+                className={`!text-[18px] leading-5 !font-[400] text-[#00000085]`}
               >
                 Total Earning
               </h3>
@@ -105,7 +105,7 @@ const AdminDashboardMain = () => {
             <div className="flex items-center">
               <MdBorderClear size={30} className="mr-2" fill="#00000085" />
               <h3
-                className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
+                className={`!text-[18px] leading-5 !font-[400] text-[#00000085]`}
               >
                 All Sellers
               </h3>
@@ -118,13 +118,13 @@ const AdminDashboardMain = () => {
   
           <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
             <div className="flex items-center">
-              <AiOutlineMoneyCollect
+              <MdProductionQuantityLimits
                 size={30}
                 className="mr-2"
                 fill="#00000085"
               />
               <h3
-                className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
+                className={` !text-[18px] leading-5 !font-[400] text-[#00000085]`}
               >
                 All Orders
               </h3>
