@@ -7,32 +7,49 @@ const router = express.Router();
 
 // create a new conversation
 router.post(
-  "/create-new-conversation",
+  "/create-product",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { groupTitle, userId, sellerId } = req.body;
-
-      const isConversationExist = await Conversation.findOne({ groupTitle });
-
-      if (isConversationExist) {
-        const conversation = isConversationExist;
-        res.status(201).json({
-          success: true,
-          conversation,
-        });
+      // Check if images are provided
+      let images = [];
+      if (typeof req.body.images === "string") {
+        images.push(req.body.images);
       } else {
-        const conversation = await Conversation.create({
-          members: [userId, sellerId],
-          groupTitle: groupTitle,
+        images = req.body.images;
+      }
+
+      // Validate image file size before upload
+      for (let i = 0; i < images.length; i++) {
+        const image = images[i];
+        const imageSize = Buffer.byteLength(image, 'base64');
+        
+        if (imageSize > MAX_FILE_SIZE) {
+          return next(new ErrorHandler("File size exceeds the maximum limit of 10 MB", 400));
+        }
+      }
+
+      const imagesLinks = [];
+      for (let i = 0; i < images.length; i++) {
+        const result = await cloudinary.v2.uploader.upload(images[i], {
+          folder: "products",
         });
 
-        res.status(201).json({
-          success: true,
-          conversation,
+        imagesLinks.push({
+          public_id: result.public_id,
+          url: result.secure_url,
         });
       }
+
+      const productData = req.body;
+      productData.images = imagesLinks;
+      const product = await Product.create(productData);
+
+      res.status(201).json({
+        success: true,
+        product,
+      });
     } catch (error) {
-      return next(new ErrorHandler(error.response.message), 500);
+      return next(new ErrorHandler(error, 400));
     }
   })
 );

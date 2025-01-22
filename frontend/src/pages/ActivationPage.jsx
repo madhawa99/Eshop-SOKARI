@@ -37,9 +37,10 @@ const ActivationPage = () => {
       }}
     >
       {error ? (
-        <p>Your token is expired!</p>
+        <p className="text-white">Your token is expired!</p>
       ) : (
-        <p>Your account has been created successfully!</p>
+
+        <p className="text-white">Your account has been created suceessfully!</p>
       )}
     </div>
   );
