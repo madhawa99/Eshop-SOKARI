@@ -34,7 +34,7 @@ const ProfileSidebar = ({ setActive, active }) => {
 
   return (
     <div
-      className="w-full h-[90vh] bg-cyan shadow-sm overflow-y-scroll sticky top-0 left-0 z-10 rounded-[10px] p-4 pt-8 "
+      className="w-full h-[110vh] bg-cyan shadow-sm overflow-y-scroll sticky top-0 left-0 z-10 rounded-[8px] p-4 pt-8 "
       style={{
         background: "linear-gradient(to right,rgb(0, 17, 34),rgb(1, 16, 24))",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -82,7 +82,7 @@ const ProfileSidebar = ({ setActive, active }) => {
 
       <div
         className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(4) || navigate("/inbox")}
+        //onClick={() => setActive(4) || navigate("/inbox")}
       >
         <AiOutlineMessage size={20} color={active === 4 ? "cyan" : "white"} />
         <span

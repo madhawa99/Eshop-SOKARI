@@ -77,7 +77,7 @@ const ProfileContent = ({ active }) => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-900 text-black flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative">
+    <div className="w-full min-h-screen bg-gray-900 text-black flex flex-col justify-start py-12 sm:px-6 lg:px-8 relative">
       {/* Gradient background */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute inset-0">
@@ -161,7 +161,7 @@ const ProfileContent = ({ active }) => {
                   </div>
                 </div>
                 <input
-                  className={`w-[250px] h-[40px] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
+                  className={`w-[250px] h-[40px] border bg-green-900 border-green-900 text-center text-[#3ad132] rounded-[3px] mt-8 cursor-pointer`}
                   required
                   value="Update"
                   type="submit"
@@ -290,6 +290,9 @@ const AllOrders = () => {
         pageSize={10}
         disableSelectionOnClick
         autoHeight
+        style={{
+          backgroundColor: "#f0f8ff", 
+        }}
       />
     </div>
   );
@@ -378,6 +381,10 @@ const AllRefundOrders = () => {
         pageSize={10}
         autoHeight
         disableSelectionOnClick
+        autoHeights
+        style={{
+          backgroundColor: "#f0f8ff", 
+        }}
       />
     </div>
   );
@@ -463,6 +470,9 @@ const TrackOrder = () => {
         pageSize={10}
         disableSelectionOnClick
         autoHeight
+        style={{
+          backgroundColor: "#f0f8ff", 
+        }}
       />
     </div>
   );
@@ -533,7 +543,7 @@ const ChangePassword = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
             <input
-              className={`w-[95%] h-[40px] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
+              className={`w-[95%] h-[40px] border  border-[#00FFFF] text-center text-[#00FFFF] rounded-[3px] mt-8 cursor-pointer`}
               required
               value="Update"
               type="submit"
@@ -603,7 +613,7 @@ const Address = () => {
     <div className="w-full px-5">
       {open && (
         <div className="fixed w-full h-screen bg-[#0000004b] top-0 left-0 flex items-center justify-center ">
-          <div className="w-[35%] h-[80vh] bg-gray-900 rounded shadow relative">
+          <div className="w-[35%] h-[100vh] bg-gray-900 rounded shadow relative">
             <div className="w-full flex justify-end p-3">
               <RxCross1
                 size={30}
@@ -725,11 +735,13 @@ const Address = () => {
                     </select>
                   </div>
 
+
                   <div className=" w-full pb-2" color="white">
                     <input
-                      type="submit"
                       className={`${styles.input} mt-5 cursor-pointer group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700`}
                       required
+                      value="Update"
+                      type="submit"                   
                       readOnly
                     />
                   </div>
