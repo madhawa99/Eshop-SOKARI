@@ -58,7 +58,7 @@ const Header = ({ activeHeading }) => {
           <div className="pt-6">
             <Link to="/">
               <img
-                src="sokari5.png"
+                src="https://res.cloudinary.com/dw6fhh2l4/image/upload/v1737574280/SOKARI_p4fjln.svg"
                 alt=""
               />
             </Link>
@@ -217,7 +217,7 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                
+                src="https://res.cloudinary.com/dw6fhh2l4/image/upload/v1737574635/SOKARI2_wr7ld9.svg"
                 alt=""
                 className="mt-3 cursor-pointer"
               />

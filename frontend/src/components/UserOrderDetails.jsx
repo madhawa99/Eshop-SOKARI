@@ -100,7 +100,7 @@ const UserOrderDetails = () => {
               </h5>
             </div>
             {!item.isReviewed && data?.status === "Delivered" ?  <div
-                className={`${styles.button} text-[#fff]`}
+                className={`${styles.button} text-[#fff] bg-cyan-400`}
                 onClick={() => setOpen(true) || setSelectedItem(item)}
               >
                 Write a review

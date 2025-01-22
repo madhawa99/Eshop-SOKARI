@@ -13,14 +13,14 @@ const AdminHeader = () => {
     <div className="w-full h-[80px] bg-[#001F3F] shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4"
           style={{background: "linear-gradient(to right, rgba(0, 31, 63, 0.1), rgba(0, 63, 95, 0.3))"}}
     >
-        <div>
-            <Link to="/">
-              <img
-                src="sokari5.png"
-                alt=""
-              />
-            </Link>
-        </div>
+      <div>
+        <Link to="/">
+          <img
+            src="sokari5.png"
+            alt=""
+          />
+        </Link>
+      </div>
       <div className="flex items-center">
         <div className="flex items-center mr-4">
           <Link to="/dashboard/cupouns" className="800px:block hidden">
@@ -45,7 +45,7 @@ const AdminHeader = () => {
             />
           </Link>
           <Link to="/dashboard-orders" className="800px:block hidden">
-            <FiPackage color="white" size={30} className="mx-5 cursor-pointer" />
+            <FiPackage color="#555" size={30} className="mx-5 cursor-pointer" />
           </Link>
           <Link to="/dashboard-messages" className="800px:block hidden">
             <BiMessageSquareDetail
