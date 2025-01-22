@@ -113,7 +113,7 @@ const Header = ({ activeHeading }) => {
         } transition hidden 800px:flex items-center justify-between w-full bg-[radial-gradient(ellipse_at_top,rgba(24, 49, 53, 0.3)_0%,rgba(45, 197, 243, 0.2)_45%,rgba(0,0,0,0.1)_100%)] border-cyan-900 h-[70px]`}
       >
         <div
-          className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
+          className={`${styles.section} relative ${styles.noramlFlex} justify-between bg-black bg-opacity-30`}
         >
           {/* categories */}
           <div onClick={() => setDropDown(!dropDown)}>
