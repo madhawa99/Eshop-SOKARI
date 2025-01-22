@@ -47,7 +47,7 @@ const AdminSideBar = ({ active }) => {
 
         <div className="w-full flex items-center p-4">
           <Link to="/admin-sellers" className="w-full flex items-center">
-            <GrWorkshop
+            <HiOutlineUserGroup
               size={30}
               color={`${active === 3 ? "cyan" : "#FFFFFF"}`}
             />
