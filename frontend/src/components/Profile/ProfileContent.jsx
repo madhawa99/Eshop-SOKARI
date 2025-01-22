@@ -756,7 +756,7 @@ const Address = () => {
           className={`${styles.button} !rounded-md`}
           onClick={() => setOpen(true)}
         >
-          <span className="text-[#fff] text-cyan-50">Add New</span>
+          <span className=" text-cyan-50">Add New</span>
         </div>
       </div>
       <br />
