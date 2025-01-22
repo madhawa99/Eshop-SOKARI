@@ -249,7 +249,7 @@ const Header = ({ activeHeading }) => {
             className={`fixed w-full bg-[#0000005f] z-20 h-full top-0 left-0`}
           >
             <div className="fixed w-[70%] h-screen top-0 left-0 z-10 overflow-y-scroll"
-              style={{background: "linear-gradient(to right, rgba(0, 31, 63, 1), rgba(0, 63, 95, 0.9))"}}
+              style={{background: "linear-gradient(to right, rgb(0, 12, 24), rgba(0, 13, 19, 0.9))"}}
             >
               <div className="w-full justify-between flex pr-3">
                 <div>
@@ -257,7 +257,7 @@ const Header = ({ activeHeading }) => {
                     className="relative mr-[15px]"
                     onClick={() => setOpenWishlist(true) || setOpen(false)}
                   >
-                    <AiOutlineHeart size={30} className="mt-5 ml-3" />
+                    <AiOutlineHeart size={30} className="mt-5 ml-3" color="white" />
                     <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                       {wishlist && wishlist.length}
                     </span>
@@ -266,6 +266,7 @@ const Header = ({ activeHeading }) => {
                 <RxCross1
                   size={30}
                   className="ml-4 mt-5"
+                  color="white"
                   onClick={() => setOpen(false)}
                 />
               </div>
