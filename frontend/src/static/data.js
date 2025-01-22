@@ -254,59 +254,61 @@ export const categoriesData = [
   
 
 
-  export const footerProductLinks = [
-    {
-      name: "About us",
-      link: "/about"
-    },
-    {
-      name: "Careers",
-      link: "/carrers"
-    },
-    {
-      name: "Store Locations",
-    },
-    {
-      name: "Our Blog",
-    },
-    {
-      name: "Reviews",
-    },
-  ];
-  
-  export const footercompanyLinks = [
-    {
-      name: "Game & Video",
-    },
-    {
-      name: "Phone &Tablets",
-    },
-    {
-      name: "Computers & Laptop",
-    },
-    {
-      name: "Sport Watches",
-    },
-    {
-      name: "Events",
-    },
-  ];
-  
-  export const footerSupportLinks = [
-    {
-      name: "FAQ",
-    },
-    {
-      name: "Reviews",
-    },
-    {
-      name: "Contact Us",
-    },
-    {
-      name: "Shipping",
-    },
-    {
-      name: "Live chat",
-    },
-  ];
+export const footerProductLinks = [
+  {
+    name: "About us",
+    link: "/"
+  },
+  {
+    name: "Careers",
+    link: "/"
+  },
+  {
+    name: "Store Locations",
+  },
+  {
+    name: "Our Blog",
+  },
+  {
+    name: "Reviews",
+  },
+];
+
+export const footercompanyLinks = [
+  {
+    name: "Handcrafted Products",
+  },
+  {
+    name: "Local Artisans",
+  },
+  {
+    name: "Eco-Friendly Materials",
+  },
+  {
+    name: "Workshops & Events",
+  },
+  {
+    name: "Our Mission",
+  },
+];
+
+export const footerSupportLinks = [
+  {
+    name: "FAQ",
+  },
+  {
+    name: "Reviews",
+  },
+  {
+    name: "Contact Us",
+  },
+  {
+    name: "Shipping",
+  },
+  {
+    name: "Live chat",
+  },
+];
+
+
   
