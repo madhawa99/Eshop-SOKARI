@@ -17,11 +17,7 @@ const Faq = () => {
   const [activeTab, setActiveTab] = useState(0); // First FAQ open by default
 
   const toggleTab = (tab) => {
-    if (activeTab === tab) {
-      setActiveTab(0); // Close if already open
-    } else {
-      setActiveTab(tab); // Open selected tab
-    }
+    setActiveTab(activeTab === tab ? null : tab); // Toggle tab or close if already open
   };
 
   return (
