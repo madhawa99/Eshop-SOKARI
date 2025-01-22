@@ -157,7 +157,7 @@ const Signup = () => {
                 Submit
               </button>
             </div>
-            <div className={`${styles.noramlFlex} w-full text-gray-300`}>
+            <div className={`${styles.normalFlex} w-full text-gray-300`}>
               <h4>Already have an account?</h4>
               <Link to="/login" className="text-cyan-500 pl-2">
                 Sign In
