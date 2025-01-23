@@ -23,7 +23,7 @@ router.post("/create-user", async (req, res, next) => {
       folder: "avatars",
     });
 
-    const user = {
+    const user = { //prepare the user object
       name: name,
       email: email,
       password: password,
@@ -33,10 +33,11 @@ router.post("/create-user", async (req, res, next) => {
       },
     };
 
-    const activationToken = createActivationToken(user);
+    const activationToken = createActivationToken(user); 
 
     const activationUrl = `http://localhost:3000/activation/${activationToken}`;
 
+    //sends an exmail with an activation link
     try {
       await sendMail({
         email: user.email,
@@ -67,24 +68,24 @@ router.post(
   "/activation",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { activation_token } = req.body;
+      const { activation_token } = req.body; //Extract activation token from the request body
 
-      const newUser = jwt.verify(
+      const newUser = jwt.verify( //decode the activation token
         activation_token,
         process.env.ACTIVATION_SECRET
       );
 
-      if (!newUser) {
+      if (!newUser) { //check token validity
         return next(new ErrorHandler("Invalid token", 400));
       }
-      const { name, email, password, avatar } = newUser;
+      const { name, email, password, avatar } = newUser; //extract user information from decoded token
 
       let user = await User.findOne({ email });
 
       if (user) {
-        return next(new ErrorHandler("User already exists", 400));
+        return next(new ErrorHandler("User already exists", 400)); //if user exists return error
       }
-      user = await User.create({
+      user = await User.create({ //if user email does not exists create a new user
         name,
         email,
         avatar,
@@ -101,7 +102,7 @@ router.post(
 // login user
 router.post(
   "/login-user",
-  catchAsyncErrors(async (req, res, next) => {
+  catchAsyncErrors(async (req, res, next) => { //middleware A wrapper function
     try {
       const { email, password } = req.body;
 
@@ -109,13 +110,13 @@ router.post(
         return next(new ErrorHandler("Please provide the all fields!", 400));
       }
 
-      const user = await User.findOne({ email }).select("+password");
+      const user = await User.findOne({ email }).select("+password"); 
 
       if (!user) {
         return next(new ErrorHandler("User doesn't exists!", 400));
       }
 
-      const isPasswordValid = await user.comparePassword(password);
+      const isPasswordValid = await user.comparePassword(password); //compare password with the hashed password
 
       if (!isPasswordValid) {
         return next(
@@ -123,7 +124,7 @@ router.post(
         );
       }
 
-      sendToken(user, 201, res);
+      sendToken(user, 201, res); //generate token for authenticated user
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
     }
@@ -133,7 +134,7 @@ router.post(
 // load user
 router.get(
   "/getuser",
-  isAuthenticated,
+  isAuthenticated, //is user authenticated (e.g., checks a session, JWT token, or cookie)
   catchAsyncErrors(async (req, res, next) => {
     try {
       const user = await User.findById(req.user.id);
@@ -142,7 +143,7 @@ router.get(
         return next(new ErrorHandler("User doesn't exists", 400));
       }
 
-      res.status(200).json({
+      res.status(200).json({ //json response
         success: true,
         user,
       });
@@ -158,10 +159,10 @@ router.get(
   catchAsyncErrors(async (req, res, next) => {
     try {
       res.cookie("token", null, {
-        expires: new Date(Date.now()),
-        httpOnly: true,
-        sameSite: "none",
-        secure: true,
+        expires: new Date(Date.now()), //cookie expire immediately
+        httpOnly: true, //cookie cannot be accessed via client-side
+        sameSite: "none", //Allows the cookie to be sent with cross-site requests.
+        secure: true, //cookie is only sent over HTTPS.
       });
       res.status(201).json({
         success: true,
@@ -181,7 +182,7 @@ router.put(
     try {
       const { email, password, phoneNumber, name } = req.body;
 
-      const user = await User.findOne({ email }).select("+password");
+      const user = await User.findOne({ email }).select("+password"); //explicitly get password from database
 
       if (!user) {
         return next(new ErrorHandler("User not found", 400));
@@ -194,7 +195,7 @@ router.put(
           new ErrorHandler("Please provide the correct information", 400)
         );
       }
-
+      //update with new values
       user.name = name;
       user.email = email;
       user.phoneNumber = phoneNumber;
@@ -221,13 +222,14 @@ router.put(
       if (req.body.avatar !== "") {
         const imageId = existsUser.avatar.public_id;
 
-        await cloudinary.v2.uploader.destroy(imageId);
+        await cloudinary.v2.uploader.destroy(imageId); //deletes user current avatar
 
         const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
           folder: "avatars",
-          width: 150,
+          width: 150, //resizes the image
         });
 
+        //update avatar
         existsUser.avatar = {
           public_id: myCloud.public_id,
           url: myCloud.secure_url,
@@ -254,7 +256,7 @@ router.put(
     try {
       const user = await User.findById(req.user.id);
 
-      const sameTypeAddress = user.addresses.find(
+      const sameTypeAddress = user.addresses.find( //home/office
         (address) => address.addressType === req.body.addressType
       );
       if (sameTypeAddress) {
@@ -297,9 +299,9 @@ router.delete(
 
       await User.updateOne(
         {
-          _id: userId,
+          _id: userId, //Matches the user in the database using their unique ID.
         },
-        { $pull: { addresses: { _id: addressId } } }
+        { $pull: { addresses: { _id: addressId } } } //removes any element in the addresses array that matches the condition { _id: addressId }.
       );
 
       const user = await User.findById(userId);
@@ -370,7 +372,7 @@ router.get(
   isAdmin("Admin"),
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const users = await User.find().sort({
+      const users = await User.find().sort({ // most recently created users appear first.
         createdAt: -1,
       });
       res.status(201).json({
