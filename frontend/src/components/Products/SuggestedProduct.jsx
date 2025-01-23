@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { productData } from "../../static/data";
 import styles from "../../styles/styles";
 import ProductCard from "../Route/ProductCard/ProductCard";
 
+// Using Redux to get all the products from the global state
 const SuggestedProduct = ({ data }) => {
   const {allProducts} = useSelector((state) => state.products);
   const [productData,setProductData] = useState();
 
   useEffect(() => {
     const d =
-    allProducts && allProducts.filter((i) => i.category === data.category);
+    allProducts && allProducts.filter((i) => i.category === data.category);// Filtering all products by category
     setProductData(d);
   }, []);
 

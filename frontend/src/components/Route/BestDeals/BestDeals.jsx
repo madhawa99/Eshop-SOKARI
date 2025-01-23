@@ -4,11 +4,12 @@ import styles from "../../../styles/styles";
 import ProductCard from "../ProductCard/ProductCard";
 
 const BestDeals = () => {
+  // Local state to store the top 5 best-selling products
   const [data, setData] = useState([]);
   const { allProducts } = useSelector((state) => state.products);
   useEffect(() => {
     const allProductsData = allProducts ? [...allProducts] : [];
-    const sortedData = allProductsData?.sort((a,b) => b.sold_out - a.sold_out); 
+    const sortedData = allProductsData?.sort((a,b) => b.sold_out - a.sold_out); // Sorting products by sold_out
     const firstFive = sortedData && sortedData.slice(0, 5);
     setData(firstFive);
   }, [allProducts]);

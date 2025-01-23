@@ -4,6 +4,7 @@ import styles from "../../../styles/styles";
 import ProductCard from "../ProductCard/ProductCard";
 
 const FeaturedProduct = () => {
+  // Access the 'allProducts' array from the Redux store using useSelector
   const {allProducts} = useSelector((state) => state.products);
    
   return (

@@ -13,7 +13,7 @@ router.post(
   "/create-product",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const shopId = req.body.shopId;
+      const shopId = req.body.shopId; // Get shop ID 
       const shop = await Shop.findById(shopId);
       if (!shop) {
         return next(new ErrorHandler("Shop Id is invalid!", 400));
@@ -40,14 +40,14 @@ router.post(
         }
       
         const productData = req.body;
-        productData.images = imagesLinks;
-        productData.shop = shop;
+        productData.images = imagesLinks; // Add image links to product data
+        productData.shop = shop; // Link the product to the shop
 
         const product = await Product.create(productData);
 
         res.status(201).json({
           success: true,
-          product,
+          product, // Return 
         });
       }
     } catch (error) {
@@ -61,7 +61,7 @@ router.get(
   "/get-all-products-shop/:id",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const products = await Product.find({ shopId: req.params.id });
+      const products = await Product.find({ shopId: req.params.id }); //specific shop
 
       res.status(201).json({
         success: true,
@@ -159,9 +159,9 @@ router.put(
 
       product.ratings = avg / product.reviews.length;
 
-      await product.save({ validateBeforeSave: false });
+      await product.save({ validateBeforeSave: false }); // Save product with updated reviews
 
-      await Order.findByIdAndUpdate(
+      await Order.findByIdAndUpdate(  // Mark product as reviewed in the order
         orderId,
         { $set: { "cart.$[elem].isReviewed": true } },
         { arrayFilters: [{ "elem._id": productId }], new: true }
