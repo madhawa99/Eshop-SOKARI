@@ -212,7 +212,7 @@ export const categoriesData = [
     id: 4,
     title: "Leather Works",
     subTitle: "",
-    image_Url: "categorieImg/Leather Works1.png", 
+    image_Url: "categorieImg/Leather Works1.jpg", 
   },
   {
     id: 5,
@@ -224,31 +224,31 @@ export const categoriesData = [
     id: 6,
     title: "Velvet Paintings",
     subTitle: "",
-    image_Url: "categorieImg/Velvet Paintings1.png", 
+    image_Url: "categorieImg/Velvet Paintings1.jpg", 
   },
   {
     id: 7,
     title: "Handwoven Fabrics",
     subTitle: "",
-    image_Url: "categorieImg/Handloom.png", 
+    image_Url: "categorieImg/Handloom.jpg", 
   },
   {
     id: 8,
     title: "Coconut Shell Craft",
     subTitle: "",
-    image_Url: "categorieImg/Coconut Shell Craft1.png", 
+    image_Url: "categorieImg/Coconut Shell Craft1.jpg", 
   },
   {
     id: 9,
     title: "Gemstone Jewelry",
     subTitle: "",
-    image_Url: "categorieImg/Gemstone Jewelry2.png",
+    image_Url: "categorieImg/Gemstone Jewelry2.jpg",
   },
   {
     id: 10,
     title: "Clay Pottery",
     subTitle: "",
-    image_Url: "categorieImg/Clay Pottery.png", 
+    image_Url: "categorieImg/Clay Pottery.jpg", 
   },
 ];
   
