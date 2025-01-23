@@ -148,7 +148,7 @@ const AllCoupons = () => {
                     onClick={() => setOpen(false)}
                   />
                 </div>
-                <h5 className="text-[30px] font-Poppins text-center bg-cyan-500">
+                <h5 className="text-[30px] font-Poppins text-center bg-gradient-to-r from-cyan-900 to-cyan-700 text-white">
                   Create Coupon code
                 </h5>
                 {/* create coupoun code */}
