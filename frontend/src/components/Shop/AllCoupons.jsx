@@ -125,7 +125,7 @@ const AllCoupons = () => {
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <div className="w-full flex justify-end">
             <div
-              className={`${styles.button} !w-max !h-[45px] px-3 !rounded-[5px] mr-3 mb-3`}
+              className={`${styles.button} bg-gradient-to-r from-cyan-900 to-cyan-700  !w-max !h-[45px] px-3 !rounded-[5px] mr-3 mb-3`}
               onClick={() => setOpen(true)}
             >
               <span className="text-white">Create Coupon Code</span>
