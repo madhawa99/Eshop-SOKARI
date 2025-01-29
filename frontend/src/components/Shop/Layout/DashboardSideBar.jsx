@@ -14,7 +14,7 @@ const DashboardSideBar = ({ active }) => {
     <div
       className="w-full rounded-[10px] p-4 pt-8"
       style={{
-        background: "linear-gradient(to right, #001F3F, #003F5F)",
+        background: "linear-gradient(to left, #001F3F,rgb(0, 25, 37))",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
       }}
     >
@@ -131,22 +131,6 @@ const DashboardSideBar = ({ active }) => {
               }`}
             >
               Withdraw Money
-            </h5>
-          </Link>
-        </div>
-  
-        <div className="w-full flex items-center p-4">
-          <Link to="/dashboard-messages" className="w-full flex items-center">
-            <BiMessageSquareDetail
-              size={30}
-              color={`${active === 8 ? "cyan" : "#FFFFFF"}`}
-            />
-            <h5
-              className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-                active === 8 ? "text-[cyan]" : "text-[#FFFFFF]"
-              }`}
-            >
-              Shop Inbox
             </h5>
           </Link>
         </div>

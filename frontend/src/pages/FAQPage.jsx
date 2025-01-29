@@ -14,317 +14,91 @@ const FAQPage = () => {
 };
 
 const Faq = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(0); // First FAQ open by default
 
   const toggleTab = (tab) => {
-    if (activeTab === tab) {
-      setActiveTab(0);
-    } else {
-      setActiveTab(tab);
-    }
+    setActiveTab(activeTab === tab ? null : tab); // Toggle tab or close if already open
   };
 
   return (
     <div className={`${styles.section} my-8`}>
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">FAQ</h2>
+      <h2 className="text-3xl font-bold text-white mb-8">FAQ</h2>
       <div className="mx-auto space-y-4">
-        {/* single Faq */}
-
-        <div className="border-b border-gray-200 pb-4">
-          <button
-            className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(2)}
-          >
-            <span className="text-lg font-medium text-gray-900">
-              What is your return policy?
-            </span>
-            {activeTab === 2 ? (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+        {faqData.map((faq, index) => (
+          <div className="border-b border-gray-200 pb-4" key={index}>
+            <button
+              className="flex items-center justify-between w-full"
+              onClick={() => toggleTab(index)}
+            >
+              <span className="text-lg font-medium text-white">{faq.question}</span>
+              {activeTab === index ? (
+                <svg
+                  className="h-6 w-6 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="h-6 w-6 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              )}
+            </button>
+            {activeTab === index && (
+              <div className="mt-4">
+                <p className="text-base text-gray-300">{faq.answer}</p>
+              </div>
             )}
-          </button>
-          {activeTab === 2 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
-                If you're not satisfied with your purchase, we accept returns
-                within 30 days of delivery. To initiate a return, please email
-                us at support@myecommercestore.com with your order number and a
-                brief explanation of why you're returning the item.
-              </p>
-            </div>
-          )}
-        </div>
-
-        <div className="border-b border-gray-200 pb-4">
-          <button
-            className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(3)}
-          >
-            <span className="text-lg font-medium text-gray-900">
-              How do I track my order?
-            </span>
-            {activeTab === 3 ? (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            )}
-          </button>
-          {activeTab === 3 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
-                You can track your order by clicking the tracking link in your
-                shipping confirmation email, or by logging into your account on
-                our website and viewing the order details.
-              </p>
-            </div>
-          )}
-        </div>
-
-        <div className="border-b border-gray-200 pb-4">
-          <button
-            className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(4)}
-          >
-            <span className="text-lg font-medium text-gray-900">
-              How do I contact customer support?
-            </span>
-            {activeTab === 4 ? (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            )}
-          </button>
-          {activeTab === 4 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
-                You can contact our customer support team by emailing us at
-                support@myecommercestore.com, or by calling us at (555) 123-4567
-                between the hours of 9am and 5pm EST, Monday through Friday.
-              </p>
-            </div>
-          )}
-        </div>
-
-        <div className="border-b border-gray-200 pb-4">
-          <button
-            className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(5)}
-          >
-            <span className="text-lg font-medium text-gray-900">
-              Can I change or cancel my order?
-            </span>
-            {activeTab === 5 ? (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            )}
-          </button>
-          {activeTab === 5 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
-                Unfortunately, once an order has been placed, we are not able to
-                make changes or cancellations. If you no longer want the items
-                you've ordered, you can return them for a refund within 30 days
-                of delivery.
-              </p>
-            </div>
-          )}
-        </div>
-
-        <div className="border-b border-gray-200 pb-4">
-          <button
-            className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(6)}
-          >
-            <span className="text-lg font-medium text-gray-900">
-              Do you offer international shipping?
-            </span>
-            {activeTab === 6 ? (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            )}
-          </button>
-          {activeTab === 6 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
-                Currently, we only offer shipping within the United States.
-              </p>
-            </div>
-          )}
-        </div>
-
-        <div className="border-b border-gray-200 pb-4">
-          <button
-            className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(7)}
-          >
-            <span className="text-lg font-medium text-gray-900">
-              What payment methods do you accept?
-            </span>
-            {activeTab === 7 ? (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            )}
-          </button>
-          {activeTab === 7 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
-                We accept visa,mastercard,paypal payment method also we have
-                cash on delivery system.
-              </p>
-            </div>
-          )}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
+
+const faqData = [
+  {
+    question: "How can I sell my handcrafted items on SOKARI?",
+    answer:
+      "To become a seller on SOKARI, create an artisan account by clicking on the 'Join as an Artisan' button on our homepage. After completing your profile, submit your product details for review. Once approved, you can start showcasing and selling your handcrafted items to a global audience.",
+  },
+  {
+    question: "What payment options are available for customers?",
+    answer:
+      "We accept a variety of payment methods, including Visa, Mastercard, PayPal, and local payment options such as Cash on Delivery (COD) for Sri Lankan customers. All transactions are secure and encrypted to protect your information.",
+  },
+  {
+    question: "Are there any fees for artisans to list their products?",
+    answer:
+      "SOKARI offers a free listing option for artisans, but a small commission fee is charged per successful sale to support platform operations. Detailed information about fees can be found in our seller terms and conditions.",
+  },
+  {
+    question: "Can I customize an item before purchasing?",
+    answer:
+      "Yes, many of our artisans offer customization options for their products. You can contact the artisan directly using the 'Request Customization' button on the product page to discuss your preferences before placing the order.",
+  },
+  {
+    question: "What should I do if I receive a damaged product?",
+    answer:
+      "If you receive a damaged or defective product, please contact us within 7 days of delivery with photos of the item and packaging. Our team will review your case and arrange for a replacement or refund as per our return policy.",
+  },
+];
 
 export default FAQPage;

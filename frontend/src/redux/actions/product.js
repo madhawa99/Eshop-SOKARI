@@ -20,6 +20,7 @@ export const createProduct =
         type: "productCreateRequest",
       });
 
+      // Send a POST request to the backend API to create the product
       const { data } = await axios.post(
         `${server}/product/create-product`,
         name,

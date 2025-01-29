@@ -135,7 +135,7 @@ const Checkout = () => {
         </div>
       </div>
       <div
-        className={`${styles.button} w-[150px] 800px:w-[280px] mt-10`}
+        className={`${styles.button} w-[150px] 800px:w-[280px] mt-10 bg-cyan-600 hover:bg-cyan-500`}
         onClick={paymentSubmit}
       >
         <h5 className="text-white">Go to Payment</h5>
@@ -342,7 +342,7 @@ const CartData = ({
           required
         />
         <input
-          className={`w-full h-[40px] border border-[#f63b60] text-center text-[#f63b60] rounded-[3px] mt-8 cursor-pointer`}
+          className={`group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700`}
           required
           value="Apply code"
           type="submit"

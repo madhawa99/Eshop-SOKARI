@@ -16,44 +16,14 @@ const AdminHeader = () => {
       <div>
         <Link to="/">
           <img
-            src="sokari5.png"
+            src="https://res.cloudinary.com/dw6fhh2l4/image/upload/v1737574280/SOKARI_p4fjln.svg"
             alt=""
           />
         </Link>
       </div>
+
       <div className="flex items-center">
         <div className="flex items-center mr-4">
-          <Link to="/dashboard/cupouns" className="800px:block hidden">
-            <AiOutlineGift
-              color="white"
-              size={30}
-              className="mx-5 cursor-pointer"
-            />
-          </Link>
-          <Link to="/dashboard-events" className="800px:block hidden">
-            <MdOutlineLocalOffer
-              color="white"
-              size={30}
-              className="mx-5 cursor-pointer"
-            />
-          </Link>
-          <Link to="/dashboard-products" className="800px:block hidden">
-            <FiShoppingBag
-              color="white"
-              size={30}
-              className="mx-5 cursor-pointer"
-            />
-          </Link>
-          <Link to="/dashboard-orders" className="800px:block hidden">
-            <FiPackage color="#555" size={30} className="mx-5 cursor-pointer" />
-          </Link>
-          <Link to="/dashboard-messages" className="800px:block hidden">
-            <BiMessageSquareDetail
-              color="white"
-              size={30}
-              className="mx-5 cursor-pointer"
-            />
-          </Link>
             <img
               src={`${user?.avatar?.url}`}
               alt=""

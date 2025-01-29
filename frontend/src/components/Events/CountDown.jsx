@@ -16,13 +16,13 @@ const CountDown = ({ data }) => {
       typeof timeLeft.minutes === 'undefined' &&
       typeof timeLeft.seconds === 'undefined'
     ) {
-      axios.delete(`${server}/event/delete-shop-event/${data._id}`);
+      axios.delete(`${server}/event/delete-shop-event/${data._id}`); // Send a DELETE request to the backend
     }
     return () => clearTimeout(timer);
   });
 
   function calculateTimeLeft() {
-    const difference = +new Date(data.Finish_Date) - +new Date();
+    const difference = +new Date(data.Finish_Date) - +new Date(); //Calculate the difference
     let timeLeft = {};
 
     if (difference > 0) {
@@ -37,13 +37,13 @@ const CountDown = ({ data }) => {
     return timeLeft;
   }
 
-  const timerComponents = Object.keys(timeLeft).map((interval) => {
+  const timerComponents = Object.keys(timeLeft).map((interval) => { //UI
     if (!timeLeft[interval]) {
       return null;
     }
 
     return (
-      <span className="text-[25px] text-[#475ad2]">
+      <span className="text-[25px] text-cyan-500">
         {timeLeft[interval]} {interval}{" "}
       </span>
     );

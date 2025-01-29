@@ -23,7 +23,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
       folder: "avatars",
     });
 
-
+    //create seller object
     const seller = {
       name: req.body.name,
       email: email,
@@ -82,7 +82,7 @@ router.post(
         return next(new ErrorHandler("Invalid token", 400));
       }
       const { name, email, password, avatar, zipCode, address, phoneNumber } =
-        newSeller;
+        newSeller; //extract user information from decoded token
 
       let seller = await Shop.findOne({ email });
 
@@ -166,7 +166,7 @@ router.get(
   "/logout",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      res.cookie("seller_token", null, {
+      res.cookie("seller_token", null, { //cookie expire immediately
         expires: new Date(Date.now()),
         httpOnly: true,
         sameSite: "none",

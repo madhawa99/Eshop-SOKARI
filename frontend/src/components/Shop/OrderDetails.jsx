@@ -67,11 +67,11 @@ const OrderDetails = () => {
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center">
           <BsFillBagFill size={30} color="crimson" />
-          <h1 className="pl-2 text-[25px]">Order Details</h1>
+          <h1 className="pl-2 text-[25px] text-white">Order Details</h1>
         </div>
         <Link to="/dashboard-orders">
           <div
-            className={`${styles.button} !bg-[#fce1e6] !rounded-[4px] text-[#e94560] font-[600] !h-[45px] text-[18px]`}
+            className={`${styles.button} !bg-cyan-500 !rounded-[4px] text-white font-[600] !h-[45px] text-[18px]`}
           >
             Order List
           </div>
@@ -82,7 +82,7 @@ const OrderDetails = () => {
         <h5 className="text-[#FFFFFF]">
           Order ID: <span>#{data?._id?.slice(0, 8)}</span>
         </h5>
-        <h5 className="text-[#00000084]">
+        <h5 className="text-[#00000084] text-white">
           Placed on: <span>{data?.createdAt?.slice(0, 10)}</span>
         </h5>
       </div>
@@ -99,8 +99,8 @@ const OrderDetails = () => {
               className="w-[80x] h-[80px]"
             />
             <div className="w-full">
-              <h5 className="pl-3 text-[20px]">{item.name}</h5>
-              <h5 className="pl-3 text-[20px] text-[#00000091]">
+              <h5 className="pl-3 text-[20px] text-white">{item.name}</h5>
+              <h5 className="pl-3 text-[20px] text-gray-400">
                 US${item.discountPrice} x {item.qty}
               </h5>
             </div>
@@ -116,19 +116,19 @@ const OrderDetails = () => {
       <br />
       <div className="w-full 800px:flex items-center">
         <div className="w-full 800px:w-[60%]">
-          <h4 className="pt-3 text-[20px] font-[600]">Shipping Address:</h4>
-          <h4 className="pt-3 text-[20px]">
+          <h4 className="pt-3 text-[20px] font-[600] text-white">Shipping Address:</h4>
+          <h4 className="pt-3 text-[20px] text-white">
             {data?.shippingAddress.address1 +
               " " +
               data?.shippingAddress.address2}
           </h4>
-          <h4 className=" text-[20px]">{data?.shippingAddress.country}</h4>
-          <h4 className=" text-[20px]">{data?.shippingAddress.city}</h4>
-          <h4 className=" text-[20px]">{data?.user?.phoneNumber}</h4>
+          <h4 className=" text-[20px] text-white">{data?.shippingAddress.country}</h4>
+          <h4 className=" text-[20px] text-white">{data?.shippingAddress.city}</h4>
+          <h4 className=" text-[20px] text-white">{data?.user?.phoneNumber}</h4>
         </div>
         <div className="w-full 800px:w-[40%]">
-          <h4 className="pt-3 text-[20px]">Payment Info:</h4>
-          <h4>
+          <h4 className="pt-3 text-[20px] text-white">Payment Info:</h4>
+          <h4 className="text-white">
             Status:{" "}
             {data?.paymentInfo?.status ? data?.paymentInfo?.status : "Not Paid"}
           </h4>
@@ -136,7 +136,7 @@ const OrderDetails = () => {
       </div>
       <br />
       <br />
-      <h4 className="pt-3 text-[20px] font-[600]">Order Status:</h4>
+      <h4 className="pt-3 text-[20px] font-[600] text-white">Order Status:</h4>
       {data?.status !== "Processing refund" && data?.status !== "Refund Success" && (
         <select
           value={status}
@@ -194,7 +194,7 @@ const OrderDetails = () => {
       }
 
       <div
-        className={`${styles.button} mt-5 !bg-[#FCE1E6] !rounded-[4px] text-[#E94560] font-[600] !h-[45px] text-[18px]`}
+        className={`${styles.button} mt-5 !bg-cyan-600 !rounded-[4px] text-white font-[600] !h-[45px] text-[18px]`}
         onClick={data?.status !== "Processing refund" ? orderUpdateHandler : refundOrderUpdateHandler}
       >
         Update Status

@@ -54,11 +54,11 @@ const Header = ({ activeHeading }) => {
   return (
     <>
       <div className={`${styles.section}`}>
-        <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
+        <div className="hidden 800px:h-[70px] 800px:my-[0px] 800px:flex items-center justify-between">
           <div className="pt-6">
             <Link to="/">
               <img
-                src="sokari5.png"
+                src="https://res.cloudinary.com/dw6fhh2l4/image/upload/v1737574280/SOKARI_p4fjln.svg"
                 alt=""
               />
             </Link>
@@ -70,14 +70,14 @@ const Header = ({ activeHeading }) => {
               placeholder="Search Product..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className="h-[40px] w-full px-2 border-[#00FFFF] border-[2px] rounded-md"
+              className="h-[40px] w-full px-2 border-transparent border-[2px] rounded-md"
             />
             <AiOutlineSearch
               size={30}
               className="absolute right-2 top-1.5 cursor-pointer"
             />
             {searchData && searchData.length !== 0 ? (
-              <div className="absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
+              <div className="absolute min-h-[30vh] bg-slate-50 bg-opacity-50 shadow-sm-2 z-[9] p-4">
                 {searchData &&
                   searchData.map((i, index) => {
                     return (
@@ -99,7 +99,7 @@ const Header = ({ activeHeading }) => {
 
           <div className={`${styles.button}`}>
             <Link to={`${isSeller ? "/dashboard" : "/shop-create"}`}>
-              <h1 className=" flex items-center group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-700 hover:bg-red-600">
+              <h1 className="items-center group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-700 hover:bg-red-600">
                 {isSeller ? "Go Dashboard" : "Become Seller"}{" "}
                 <IoIosArrowForward className="ml-1" />
               </h1>
@@ -113,20 +113,20 @@ const Header = ({ activeHeading }) => {
         } transition hidden 800px:flex items-center justify-between w-full bg-[radial-gradient(ellipse_at_top,rgba(24, 49, 53, 0.3)_0%,rgba(45, 197, 243, 0.2)_45%,rgba(0,0,0,0.1)_100%)] border-cyan-900 h-[70px]`}
       >
         <div
-          className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
+          className={`${styles.section} relative ${styles.noramlFlex} justify-between bg-black bg-opacity-30`}
         >
           {/* categories */}
           <div onClick={() => setDropDown(!dropDown)}>
             <div className="relative h-[60px] mt-[10px] w-[270px] hidden 1000px:block">
-              <BiMenuAltLeft size={30} className="absolute top-3 left-2" />
+              <BiMenuAltLeft size={30} className="absolute top-3 left-2 text-white" />
               <button
-                className={`h-[100%] w-full flex justify-between items-center pl-10 bg-white font-sans text-lg font-[500] select-none rounded-t-md`}
+                className={`h-[100%] w-full flex justify-between items-center pl-10 bg-transparent font-sans text-white text-lg font-[500] select-none rounded-t-md`}
               >
                 All Categories
               </button>
               <IoIosArrowDown
                 size={20}
-                className="absolute right-2 top-4 cursor-pointer"
+                className="absolute right-2 top-4 cursor-pointer text-white"
                 onClick={() => setDropDown(!dropDown)}
               />
               {dropDown ? (
@@ -149,7 +149,7 @@ const Header = ({ activeHeading }) => {
                 onClick={() => setOpenWishlist(true)}
               >
                 <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
-                <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                <span className="absolute right-0 top-0 rounded-full bg-cyan-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                   {wishlist && wishlist.length}
                 </span>
               </div>
@@ -164,7 +164,7 @@ const Header = ({ activeHeading }) => {
                   size={30}
                   color="rgb(255 255 255 / 83%)"
                 />
-                <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                <span className="absolute right-0 top-0 rounded-full bg-cyan-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                   {cart && cart.length}
                 </span>
               </div>
@@ -204,9 +204,7 @@ const Header = ({ activeHeading }) => {
         className={`${
           active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
         }
-      w-full h-[60px] bg-[#00FFFF] z-50 top-0 left-0 shadow-sm 800px:hidden`}
-      style={{background: "linear-gradient(to right, rgba(0, 31, 63, 0.1), rgba(0, 63, 95, 0.3))"}}
-      >
+      w-full h-[60px] bg-black bg-opacity-30 z-50 top-0 left-0 shadow-sm 800px:hidden`}>
         <div className="w-full flex items-center justify-between">
           <div>
             <BiMenuAltLeft
@@ -219,7 +217,7 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                src="sokari5.png"
+                src="https://res.cloudinary.com/dw6fhh2l4/image/upload/v1737574635/SOKARI2_wr7ld9.svg"
                 alt=""
                 className="mt-3 cursor-pointer"
               />
@@ -231,7 +229,7 @@ const Header = ({ activeHeading }) => {
               onClick={() => setOpenCart(true)}
             >
               <AiOutlineShoppingCart size={30} color="rgb(255 255 255 / 83%)" />
-              <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
+              <span class="absolute right-0 top-0 rounded-full bg-cyan-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                 {cart && cart.length}
               </span>
             </div>
@@ -249,7 +247,7 @@ const Header = ({ activeHeading }) => {
             className={`fixed w-full bg-[#0000005f] z-20 h-full top-0 left-0`}
           >
             <div className="fixed w-[70%] h-screen top-0 left-0 z-10 overflow-y-scroll"
-              style={{background: "linear-gradient(to right, rgba(0, 31, 63, 1), rgba(0, 63, 95, 0.9))"}}
+              style={{background: "linear-gradient(to right, rgb(0, 12, 24), rgba(0, 13, 19, 0.9))"}}
             >
               <div className="w-full justify-between flex pr-3">
                 <div>
@@ -257,8 +255,8 @@ const Header = ({ activeHeading }) => {
                     className="relative mr-[15px]"
                     onClick={() => setOpenWishlist(true) || setOpen(false)}
                   >
-                    <AiOutlineHeart size={30} className="mt-5 ml-3" />
-                    <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
+                    <AiOutlineHeart size={30} className="mt-5 ml-3" color="white" />
+                    <span class="absolute right-0 top-0 rounded-full bg-cyan-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                       {wishlist && wishlist.length}
                     </span>
                   </div>
@@ -266,6 +264,7 @@ const Header = ({ activeHeading }) => {
                 <RxCross1
                   size={30}
                   className="ml-4 mt-5"
+                  color="white"
                   onClick={() => setOpen(false)}
                 />
               </div>
@@ -302,7 +301,7 @@ const Header = ({ activeHeading }) => {
               </div>
 
               <Navbar active={activeHeading} />
-              <div className={`${styles.button} ml-4 !rounded-[4px] group relative h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700`}>
+              <div className={`${styles.button} ml-4 group relative h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700`}>
                 <Link to="/shop-create">
                   <h1 className="text-[#fff] flex items-center">
                     Become Seller <IoIosArrowForward  />
@@ -320,7 +319,7 @@ const Header = ({ activeHeading }) => {
                       <img
                         src={`${user.avatar?.url}`}
                         alt=""
-                        className="w-[60px] h-[60px] rounded-full border-[3px] border-[#0eae88]"
+                        className="w-[60px] h-[60px] rounded-full border-[3px] border-cyan-300"
                       />
                     </Link>
                   </div>

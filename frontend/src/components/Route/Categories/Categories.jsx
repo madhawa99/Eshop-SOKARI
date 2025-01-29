@@ -9,15 +9,15 @@ const Categories = () => {
     <>
       <div className={`${styles.section} hidden sm:block`}>
         <div
-          className={`branding my-12 flex justify-between w-full shadow-sm bg-white p-5 rounded-md`}
+          className={`branding my-12 flex justify-between w-full shadow-sm bg-black bg-opacity-40 p-5 rounded-md `}
         >
           {brandingData &&
             brandingData.map((i, index) => (
               <div className="flex items-start" key={index}>
                 {i.icon}
                 <div className="px-3">
-                  <h3 className="font-bold text-sm md:text-base">{i.title}</h3>
-                  <p className="text-xs md:text-sm">{i.Description}</p>
+                  <h3 className="font-bold text-white text-sm md:text-base">{i.title}</h3>
+                  <p className="text-xs text-white md:text-sm">{i.Description}</p>
                 </div>
               </div>
             ))}
@@ -25,7 +25,7 @@ const Categories = () => {
       </div>
 
       <div
-        className={`${styles.section} bg-white p-6 rounded-lg mb-12`}
+        className={`${styles.section} bg-black bg-opacity-40 p-6 rounded-lg mb-12 border-2 border-cyan-900`}
         id="categories"
       >
         <div className="grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
@@ -36,7 +36,7 @@ const Categories = () => {
               };
               return (
                 <div
-                  className="w-full h-[100px] flex items-center justify-between cursor-pointer overflow-hidden"
+                  className="w-full h-[100px] flex items-center justify-between cursor-pointer overflow-hidden text-white"
                   key={i.id}
                   onClick={() => handleSubmit(i)}
                 >

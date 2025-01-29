@@ -12,7 +12,7 @@ router.post(
   "/create-event",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const shopId = req.body.shopId;
+      const shopId = req.body.shopId;   //Extract shop ID
       const shop = await Shop.findById(shopId);
       if (!shop) {
         return next(new ErrorHandler("Shop Id is invalid!", 400));
@@ -40,7 +40,7 @@ router.post(
 
         const productData = req.body;
         productData.images = imagesLinks;
-        productData.shop = shop;
+        productData.shop = shop; // Link event to the shop
 
         const event = await Event.create(productData);
 
@@ -58,7 +58,7 @@ router.post(
 // get all events
 router.get("/get-all-events", async (req, res, next) => {
   try {
-    const events = await Event.find();
+    const events = await Event.find(); // Retrieve all events
     res.status(201).json({
       success: true,
       events,
@@ -73,7 +73,7 @@ router.get(
   "/get-all-events/:id",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const events = await Event.find({ shopId: req.params.id });
+      const events = await Event.find({ shopId: req.params.id }); // Filter events by shopId
 
       res.status(201).json({
         success: true,
@@ -90,18 +90,16 @@ router.delete(
   "/delete-shop-event/:id",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const event = await Event.findById(req.params.id);
+      const event = await Event.findById(req.params.id); // Find event by ID
 
-      if (!product) {
-        return next(new ErrorHandler("Product is not found with this id", 404));
-      }    
-
-      for (let i = 0; 1 < product.images.length; i++) {
-        const result = await cloudinary.v2.uploader.destroy(
-          event.images[i].public_id
-        );
+      if (!event) {
+        return next(new ErrorHandler("Event is not found with this id", 404));
       }
-    
+
+      for (let i = 0; i < event.images.length; i++) {
+        await cloudinary.v2.uploader.destroy(event.images[i].public_id);
+      }
+
       await event.remove();
 
       res.status(201).json({
@@ -122,11 +120,11 @@ router.get(
   catchAsyncErrors(async (req, res, next) => {
     try {
       const events = await Event.find().sort({
-        createdAt: -1,
+        createdAt: -1, //newest first
       });
       res.status(201).json({
         success: true,
-        events,
+        events, // Return all events
       });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
